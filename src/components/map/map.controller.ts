@@ -1,12 +1,12 @@
 import Map = require('esri/Map');
-import MapView = require('esri/views/MapView');
+import SceneView = require('esri/views/SceneView');
 import TileLayer = require('esri/layers/TileLayer');
 
 import { IAsyncModule } from '../../models/app';
 
 class MapController {
 
-    mapView: MapView
+    mapView: SceneView
     
     static $inject = ['$scope'];
     
@@ -24,7 +24,7 @@ class MapController {
 
         map.add(tileLayer);
 
-        this.mapView = new MapView({
+        this.mapView = new SceneView({
             map: map,
             center: [113, 23],
             zoom: 7,
