@@ -1,11 +1,12 @@
-import Map = require('esri/map');
-import ArcGISTiledMapServiceLayer = require('esri/layers/ArcGISTiledMapServiceLayer');
+import Map = require('esri/Map');
+import MapView = require('esri/views/MapView');
+import TileLayer = require('esri/layers/TileLayer');
 
 import { IAsyncModule } from '../../models/app';
 
 class MapController {
-    
-    map: Map;
+
+    mapView: MapView
     
     static $inject = ['$scope'];
     
@@ -15,19 +16,24 @@ class MapController {
     }
     
     $onInit() {
-        this.map = new Map('map', {
-            logo: true,
-            center: [113, 23],
-            zoom: 7
+        var map = new Map({});
+
+        var tileLayer = new TileLayer({
+            url: 'http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer',
         });
-        var tiledLayer = new ArcGISTiledMapServiceLayer(
-            'http://cache1.arcgisonline.cn/arcgis/rest/services/ChinaOnlineCommunity/MapServer'
-        );
-        this.map.addLayer(tiledLayer);
+
+        map.add(tileLayer);
+
+        this.mapView = new MapView({
+            map: map,
+            center: [113, 23],
+            zoom: 7,
+            container: 'map'
+        });
     }
     
     $onDestroy() {
-        this.map.destroy();
+        //
     }
 }
 

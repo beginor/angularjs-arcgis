@@ -24,6 +24,6 @@
     "bootstrap": "^3.3.6",
     "font-awesome": "^4.6.3",
     "requirejs": "^2.2.0",
-    "arcgis-js-api": "3.16"
+    "arcgis-js-api": "^4.0.0"
   }
 }
