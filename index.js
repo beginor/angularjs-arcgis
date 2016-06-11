@@ -8,7 +8,7 @@ requirejs.config({
         { name: 'xstyle', location: 'bower_components/xstyle' },
         { name: 'put-selector', location: 'bower_components/put-selector' },
         { name: 'esri', location: 'bower_components/arcgis-js-api' },
-        { name: 'moment', location: 'bower_components/moment' }
+        { name: 'moment', location: 'bower_components/moment', main: 'moment' }
     ],
     paths: {
         'angular': 'bower_components/angular/angular',
